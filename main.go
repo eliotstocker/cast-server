@@ -27,6 +27,12 @@ var mutex = &sync.RWMutex{}
 func main() {
 	logrus.SetLevel(logrus.ErrorLevel)
 	loadState()
+
+	port := os.Getenv("SERVE_PORT")
+	if len(port) > 0 {
+		port = "3333"
+	}
+
 	discovery := discovery.NewService()
 
 	go discoveryListner(discovery)
@@ -46,7 +52,7 @@ func main() {
 	mux.HandleFunc("/{uuid}/unsubscribe", handleDeregister)
 
 	fmt.Println("Start HTTP Server")
-	err := http.ListenAndServe(":3333", mux)
+	err := http.ListenAndServe(":"+port, mux)
 
 	if err != nil {
 		fmt.Println("Cant start http server!")
