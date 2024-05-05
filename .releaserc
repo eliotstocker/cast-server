@@ -18,7 +18,11 @@
             "dockerImage": "cast-server",
             "dockerRegistry": "ghcr.io",
             "dockerProject": "eliotstocker",
-            "dockerFile": "dockerfile"
+            "dockerFile": "dockerfile",
+            "dockerPlatform": [
+                "linux/amd64",
+                "linux/arm64"
+            ]
         }
     ]
   ]
