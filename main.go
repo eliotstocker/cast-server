@@ -51,7 +51,7 @@ func main() {
 	mux.HandleFunc("/{uuid}/subscribe", handleRegister)
 	mux.HandleFunc("/{uuid}/unsubscribe", handleDeregister)
 
-	fmt.Println("Start HTTP Server")
+	fmt.Println("Start HTTP Server on Port: " + port)
 	err := http.ListenAndServe(":"+port, mux)
 
 	if err != nil {
