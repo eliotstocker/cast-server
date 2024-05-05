@@ -1,0 +1,25 @@
+{
+  "branches": ["main"],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/git",
+    "@semantic-release/github",
+    [
+        "@codedependant/semantic-release-docker",
+        {
+            "dockerTags": [
+                "latest",
+                "{{version}}",
+                "{{major}}",
+                "{{major}}.{{minor}}"
+            ],
+            "dockerImage": "cast-server",
+            "dockerRegistry": "ghcr.io",
+            "dockerProject": "eliotstocker",
+            "dockerFile": "dockerfile"
+        }
+    ]
+  ]
+}
