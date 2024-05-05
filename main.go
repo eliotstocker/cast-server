@@ -29,7 +29,7 @@ func main() {
 	loadState()
 
 	port := os.Getenv("SERVE_PORT")
-	if len(port) > 0 {
+	if len(port) < 1 {
 		port = "3333"
 	}
 
