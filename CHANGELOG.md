@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/eliotstocker/cast-server/compare/v1.0.2...v1.0.3) (2024-05-05)
+
+
+### Bug Fixes
+
+* pushing incorrect port ([af2744b](https://github.com/eliotstocker/cast-server/commit/af2744b4cd6778f5098a1ca7aa755d8481ed781b))
+
 ## [1.0.2](https://github.com/eliotstocker/cast-server/compare/v1.0.1...v1.0.2) (2024-05-05)
 
 
