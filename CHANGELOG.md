@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/eliotstocker/cast-server/compare/v1.0.1...v1.0.2) (2024-05-05)
+
+
+### Bug Fixes
+
+* log port opened by server and fix order or operations for release ([2b541d8](https://github.com/eliotstocker/cast-server/commit/2b541d8b4efedb6e6a3c793363b232b85e202ca0))
+
 ## [1.0.1](https://github.com/eliotstocker/cast-server/compare/v1.0.0...v1.0.1) (2024-05-05)
 
 
