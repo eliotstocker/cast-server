@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/eliotstocker/cast-server/compare/v1.0.3...v1.0.4) (2024-05-06)
+
+
+### Bug Fixes
+
+* add json mime headers and allow configuration of state file location ([9ab957f](https://github.com/eliotstocker/cast-server/commit/9ab957f48401e622b9316827794e4c2e4935ccfe))
+
 ## [1.0.3](https://github.com/eliotstocker/cast-server/compare/v1.0.2...v1.0.3) (2024-05-05)
 
 
