@@ -75,6 +75,7 @@ func handleList(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Add("Content-Type", "application/json")
 	io.WriteString(w, string(bytes))
 }
 
@@ -87,6 +88,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Can't serislize", d)
 		}
 
+		w.Header().Add("Content-Type", "application/json")
 		w.Write(bytes)
 	}
 }
@@ -113,6 +115,8 @@ func handleSuccess(w http.ResponseWriter, operation string) {
 	if err != nil {
 		fmt.Println("Can't serislize", out)
 	}
+
+	w.Header().Add("Content-Type", "application/json")
 	w.Write(bytes)
 }
 
@@ -125,6 +129,7 @@ func handleError(w http.ResponseWriter, operation string, errorString string, co
 		fmt.Println("Can't serislize", out)
 	}
 
+	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(code)
 	w.Write(bytes)
 }

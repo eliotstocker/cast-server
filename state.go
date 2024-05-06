@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"slices"
 	"strings"
 
@@ -9,13 +10,18 @@ import (
 )
 
 var callbackUrls map[string][]string = make(map[string][]string)
+var statePath string = os.Getenv("STATE_FILE")
 
 func loadState() {
-	inidata, err := ini.Load("state.ini")
+	if len(statePath) < 1 {
+		statePath = "state.ini"
+	}
+
+	inidata, err := ini.Load(statePath)
 	if err != nil {
-		fmt.Printf("State ini File cant be found, creating now...")
+		fmt.Printf("State File (at: '" + statePath + "') cant be found, creating now...")
 		inidata = ini.Empty()
-		_ = inidata.SaveTo("state.ini")
+		_ = inidata.SaveTo(statePath)
 		return
 	}
 
@@ -51,7 +57,7 @@ func addCallback(device *ccDevice, url string) bool {
 }
 
 func updateCallbackIni(device *ccDevice, data []string) {
-	inidata, err := ini.Load("state.ini")
+	inidata, err := ini.Load(statePath)
 	if err != nil {
 		fmt.Printf("Fail to read state ini file: %v", err)
 		inidata = ini.Empty()
@@ -73,7 +79,7 @@ func updateCallbackIni(device *ccDevice, data []string) {
 		key.SetValue(d)
 	}
 
-	_ = inidata.SaveTo("state.ini")
+	_ = inidata.SaveTo(statePath)
 }
 
 func removeCallback(device *ccDevice, url string) bool {
