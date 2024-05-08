@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/eliotstocker/cast-server/compare/v1.0.4...v1.0.5) (2024-05-08)
+
+
+### Bug Fixes
+
+* some npe fixes and add a log ([13bf3e1](https://github.com/eliotstocker/cast-server/commit/13bf3e12d11a96c205e67a2ad9b279e7766aefe9))
+
 ## [1.0.4](https://github.com/eliotstocker/cast-server/compare/v1.0.3...v1.0.4) (2024-05-06)
 
 
