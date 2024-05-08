@@ -89,6 +89,7 @@ func (d *ccDevice) pushDeviceUpdate() {
 	d.pushDebounce(func() {
 		if callbackUrls[d.Uuid] != nil {
 			for _, url := range callbackUrls[d.Uuid] {
+				fmt.Println("Send device Update: " + d.Uuid + " | " + url)
 				go d.postUpdateToCallback(url)
 			}
 		}

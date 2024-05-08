@@ -303,8 +303,10 @@ func discoveryListner(discovery *discovery.Service) {
 				}
 			case events.Media:
 				d.Status = data.PlayerState
-				d.Volume = int(math.Round(data.Volume.Level * 100))
-				d.Muted = data.Volume.Muted
+				if data.Volume != nil {
+					d.Volume = int(math.Round(data.Volume.Level * 100))
+					d.Muted = data.Volume.Muted
+				}
 				if data.Media != nil {
 					var imgUrl string
 					if len(data.Media.MetaData.Images) > 0 {
@@ -321,8 +323,10 @@ func discoveryListner(discovery *discovery.Service) {
 					)
 				}
 			case events.ReceiverStatus:
-				d.Volume = int(math.Round(data.Status.Volume.Level * 100))
-				d.Muted = data.Status.Volume.Muted
+				if data.Status.Volume != nil {
+					d.Volume = int(math.Round(data.Status.Volume.Level * 100))
+					d.Muted = data.Status.Volume.Muted
+				}
 				d.Idle = data.Status.IsStandBy
 				d.Active = data.Status.IsActiveInput
 			default:
